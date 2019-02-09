@@ -22,48 +22,53 @@ const flickr = (api_key) => {
             }
         });
         if (data.photoset.pages > page) {
-            const otherPages = await loadAllPhotosetPages(page + 1);
+            const otherPages = await loadAllPhotosetPages(user_id, photoset_id, page + 1);
             data.photoset.photo.push(...otherPages);
         }
         return data.photoset.photo;
     };
 
 
-    const loadPhotoset = async (user_id, photoset_id) => {
-        const photos = await loadAllPhotosetPages(user_id, photoset_id, 1);
-        console.log('got al photos from flickr');
-        const storedPhotos = photos.map(async (photo) => {
-            photo.url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`
+    const loadPhotos = async (user_id, photoset_id, tags) => {
+        const photos = await Promise.all([
+            loadAllPhotosetPages(user_id, photoset_id, 1),
+            loadAllTagsPages(tags, 1)
+        ]);
+        const mergedPhotos = photos[0].concat(photos[1].filter(photo => photos[0].indexOf(photo) < 0));
+        const storedPhotos = mergedPhotos.map(async (photo) => {
+            photo.url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
             photo.raw = await downloadPhoto(photo);
-            await cachePhoto(photo);
+            await cache.savePhoto(photo);
             return photo;
-        })
+        });
         return await Promise.all(storedPhotos);
     };
 
     const downloadPhoto = async (photo) => {
-            const { data } = await axios.get(photo.url);
-            return data;
-    } 
+        const { data } = await axios.get(photo.url);
+        return data;
+    } ;
 
-    const getTagPhotos = async (tags) => {
+    const loadAllTagsPages = async (tags, page) => {
         const { data } = await request.get('', {
             params: {
                 method: 'flickr.photos.search',
                 api_key,
                 tags,
-                format: 'json'
+                format: 'json',
+                nojsoncallback: 1,
+                page,
             }
         });
-        console.log(data);
+        if (data.photos.pages > page) {
+            const otherPages = await loadAllTagsPages(tags, page + 1);
+            data.photos.photo.push(...otherPages);
+        }
+        return data.photos.photo;
     };
 
-    const cachePhoto = async (photo) => {
-        return cache.savePhoto(photo);
-    };
-
-    return { loadPhotoset, getTagPhotos };
-}
+    return { loadPhotos };
+};
 
 
 module.exports = flickr;

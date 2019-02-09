@@ -1,16 +1,23 @@
 const axios = require('axios');
+const axiosRetry = require('axios-retry');
+  
 const cache = require('./redis')();
 
-const request = axios.create({
+axios.create({
     baseURL: 'https://api-us.faceplusplus.com/facepp/v3',
     timeout: 30000
 });
+
+axiosRetry(axios, { retryDelay: (retryCount) => {
+    return retryCount * 1000;
+}});
+
 
 const facePlusPlus = (api_key, api_secret) => {
 
     const analyzePhoto = async (image_url, photo_id) => {
         try {
-            const { data } = await request.post('/detect', null, {
+            const { data } = await axiosRetry.post('/detect', null, {
                 params: {
                     api_key,
                     api_secret,
@@ -23,23 +30,23 @@ const facePlusPlus = (api_key, api_secret) => {
             }
             return data;
         } catch(e) {
-            console.log('err fpp', e.message);
+            // TODO handling
         }
-    }
+    };
+
     const analyzePhotos = async (photos) => {
         return new Promise(resolve => {
-            console.log('analyzing photos');
             const photosCopy = photos.map(el => el);
             const interval = setInterval(async () =>{
                 if (photosCopy.length === 0) {
                     clearInterval(interval);
                     resolve();
                 }
-                photo = photosCopy.pop();
+                const photo = photosCopy.pop();
                 await analyzePhoto(photo.url, photo.id);
             }, 2500);
-        })
-    }
+        });
+    };
 
     const processFaces = async (photo_id, faces) => {
         const processedFaces = faces.map(async face => {
@@ -55,10 +62,10 @@ const facePlusPlus = (api_key, api_secret) => {
             return Promise.all(processedEmotions);
         });
         await Promise.all(processedFaces);
-    }
+    };
 
     return { analyzePhotos };
-}
+};
 
 
 module.exports = facePlusPlus;
