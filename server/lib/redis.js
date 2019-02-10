@@ -12,7 +12,7 @@ const wrapper = () => {
     const savePhoto = (photo) => {
         return Promise.all([
             client.zaddAsync('photos', 0, photo.id),
-            client.hmsetAsync(photo.id, 'raw', photo.raw, 'url', photo.url)
+            client.hmsetAsync(photo.id, 'url', photo.url)
         ]);
     };
 
@@ -24,12 +24,14 @@ const wrapper = () => {
         return client.hgetallAsync(id);
     };
 
-    const getByEmotion = (emotion, offset) => {
-        return client.zrangeAsync(emotion, offset, process.env.PHOTOS_PER_PAGE);
+    const getByEmotion = async (emotion, offset) => {
+        const photos_id = await client.zrangeAsync(emotion, offset, parseInt(offset) + parseInt(process.env.PHOTOS_PER_PAGE) - 1);
+        const photos = photos_id.map(id => getPhoto(id));
+        return Promise.all(photos);
     };
 
     const getPhotos = async (offset) => {
-        const photos_id = await client.zrangeAsync('photos', offset, process.env.PHOTOS_PER_PAGE);
+        const photos_id = await client.zrangeAsync('photos', offset, parseInt(offset) + parseInt(process.env.PHOTOS_PER_PAGE - 1));
         return Promise.all(photos_id.map(id => client.hgetallAsync(id)));
     };
 
