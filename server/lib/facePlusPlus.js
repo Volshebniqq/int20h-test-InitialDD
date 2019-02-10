@@ -3,12 +3,12 @@ const axiosRetry = require('axios-retry');
   
 const cache = require('./redis')();
 
-axios.create({
+const client = axios.create({
     baseURL: 'https://api-us.faceplusplus.com/facepp/v3',
     timeout: 30000
 });
 
-axiosRetry(axios, { retryDelay: (retryCount) => {
+axiosRetry(client, { retryDelay: (retryCount) => {
     return retryCount * 1000;
 }});
 
@@ -17,7 +17,7 @@ const facePlusPlus = (api_key, api_secret) => {
 
     const analyzePhoto = async (image_url, photo_id) => {
         try {
-            const { data } = await axiosRetry.post('/detect', null, {
+            const { data } = await client.post('/detect', null, {
                 params: {
                     api_key,
                     api_secret,
