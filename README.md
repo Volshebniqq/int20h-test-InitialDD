@@ -3,4 +3,4 @@
 To run application simply run
 ```docker-compose up``` 
 
-After that web-application will be accessible on `http://localhost`
+After that, web-application will be accessible on `http://localhost`
