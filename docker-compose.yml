@@ -4,6 +4,10 @@ services:
     build: ./server/
     ports:
      - "3000:3000"
+  web:
+    build: ./client/
+    ports:
+    - "80:80"
   redis:
     image: "redis:alpine"
     ports: 
