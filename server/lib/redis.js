@@ -24,8 +24,10 @@ const wrapper = () => {
         return client.hgetallAsync(id);
     };
 
-    const getByEmotion = (emotion, offset) => {
-        return client.zrangeAsync(emotion, offset, offset + process.env.PHOTOS_PER_PAGE - 1);
+    const getByEmotion = async (emotion, offset) => {
+        const photos_id = await client.zrangeAsync(emotion, offset, offset + process.env.PHOTOS_PER_PAGE - 1);
+        const photos = photos_id.map(id => getPhoto(id));
+        return Promise.all(photos);
     };
 
     const getPhotos = async (offset) => {
