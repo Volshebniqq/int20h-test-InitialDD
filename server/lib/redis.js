@@ -30,6 +30,8 @@ const wrapper = () => {
 
     const getPhotos = async (offset) => {
         const photos_id = await client.zrangeAsync('photos', offset, process.env.PHOTOS_PER_PAGE);
+        console.log(process.env.PHOTOS_PER_PAGE);
+        console.log(photos_id);
         return Promise.all(photos_id.map(id => client.hgetallAsync(id)));
     };
 
