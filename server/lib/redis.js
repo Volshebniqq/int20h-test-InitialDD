@@ -25,13 +25,13 @@ const wrapper = () => {
     };
 
     const getByEmotion = async (emotion, offset) => {
-        const photos_id = await client.zrangeAsync(emotion, offset, offset + process.env.PHOTOS_PER_PAGE - 1);
+        const photos_id = await client.zrangeAsync(emotion, offset, parseInt(offset) + parseInt(process.env.PHOTOS_PER_PAGE) - 1);
         const photos = photos_id.map(id => getPhoto(id));
         return Promise.all(photos);
     };
 
     const getPhotos = async (offset) => {
-        const photos_id = await client.zrangeAsync('photos', offset, offset + process.env.PHOTOS_PER_PAGE - 1);
+        const photos_id = await client.zrangeAsync('photos', offset, parseInt(offset) + parseInt(process.env.PHOTOS_PER_PAGE - 1));
         return Promise.all(photos_id.map(id => client.hgetallAsync(id)));
     };
 

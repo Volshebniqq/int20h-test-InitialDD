@@ -43,6 +43,7 @@ export default new Vuex.Store({
                 res = await axios.get(`http://localhost:3000/filterPhotos?offset=${state.offset}&emotion=${emotion}`).catch(e => {
                     throw new Error(e);
                 });
+                commit('setCurrentType', emotion);
             } else {
                 if (state.current_type !== 'all') {
                     commit('setPhotos', []);

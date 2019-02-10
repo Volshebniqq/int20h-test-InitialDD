@@ -1246,9 +1246,23 @@
         left: 15px;
       }
       .panel.knowledge {
+        margin-top: 20px;
+        position: static;
+        transform: none;
+        .emotion {
+          font-size: 14px;
+          padding-left: 25px;
+          margin: 8px 0;
+        }
+        .emotion.active:before {
+          top: 0px;
+          transform: none;
+        }
         h2 {
           font-size: 18px;
           margin-bottom: 0;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #eee;
         }
         .divider {
           margin: 10px 0;
@@ -1487,5 +1501,8 @@
         }
       }
     }
+  }
+  .lds-roller div:after {
+    background-color: #fff!important;
   }
 }

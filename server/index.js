@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/photos', async (req, res) => {
-    res.send(await cache.getPhotos(req.query.offset));
+    res.send(await cache.getPhotos(parseInt(req.query.offset)));
 });
 
 app.get('/emotions', (req, res) => {
@@ -38,7 +38,7 @@ app.get('/emotions', (req, res) => {
 });
 
 app.get('/filterPhotos', async(req, res) => {
-    res.send(await cache.getByEmotion(req.query.emotion, req.query.offset));
+    res.send(await cache.getByEmotion(req.query.emotion, parseInt(req.query.offset)));
 });
 
 app.get('/is_processing', (req, res) => {
