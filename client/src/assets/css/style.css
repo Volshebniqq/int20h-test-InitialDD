@@ -1,0 +1,1236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+::-webkit-scrollbar {
+  width: 0px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* optional: just make scrollbar invisible */ }
+
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000; }
+
+@font-face {
+  font-family: "GothamPro";
+  src: url(~@/assets/fonts/GothamPro.ttf); }
+@font-face {
+  font-family: "GothamPro Medium";
+  src: url(~@/assets/fonts/GothamPro-Medium.ttf); }
+@font-face {
+  font-family: "GothamPro Bold";
+  src: url(~@/assets/fonts/GothamPro-Bold.ttf); }
+@font-face {
+  font-family: "GothamPro Black";
+  src: url(~@/assets/fonts/GothamPro-Black.ttf); }
+.wrapper {
+  width: 1170px;
+  margin: 0 auto;
+  position: relative; }
+
+.auth-page {
+  height: 100vh;
+  width: 100%;
+  position: relative; }
+  .auth-page .wrapper {
+    height: 100%; }
+  .auth-page .centered {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%); }
+  .auth-page h1 {
+    font-size: 48px;
+    color: #fff;
+    font-family: "GothamPro Bold";
+    width: 950px;
+    text-align: center;
+    margin: 0 auto; }
+  .auth-page h2 {
+    font-size: 18px;
+    color: #fff;
+    font-family: "GothamPro";
+    text-align: center;
+    width: 800px;
+    margin: 20px auto 35px auto;
+    line-height: 24px; }
+  .auth-page form {
+    border-radius: 8px;
+    padding: 32px 32px 40px 32px;
+    background-color: #fff;
+    width: 570px;
+    margin: 0 auto; }
+    .auth-page form h3 {
+      font-family: "GothamPro Bold";
+      font-size: 40px;
+      color: #191919;
+      text-align: left;
+      margin-bottom: 20px; }
+    .auth-page form .input-container {
+      width: 100%;
+      height: 56px;
+      position: relative;
+      border-radius: 28px;
+      -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+      margin-bottom: 12px; }
+      .auth-page form .input-container input {
+        width: 100%;
+        outline: none;
+        line-height: 56px;
+        height: 56px;
+        padding-left: 37px;
+        border: none;
+        background-color: transparent;
+        font-family: "GothamPro";
+        font-size: 14px;
+        color: #191919; }
+    .auth-page form button {
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 24px;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-family: "GothamPro";
+      font-size: 14px;
+      color: #fff;
+      display: block;
+      cursor: pointer; }
+    .auth-page form .registered {
+      width: 100%;
+      text-align: center;
+      display: block;
+      font-family: "GothamPro Medium";
+      text-decoration: underline;
+      color: #2f50c7;
+      margin-top: 20px; }
+    .auth-page form .register, .auth-page form .remember, .auth-page form .back-to-course {
+      margin-top: 25px;
+      float: right;
+      font-size: 14px;
+      font-family: "GothamPro Medium";
+      color: #2f50c7; }
+    .auth-page form .forgot {
+      margin-top: 25px;
+      float: left;
+      font-size: 14px;
+      font-family: "GothamPro Medium";
+      color: #2f50c7; }
+    .auth-page form .divider {
+      width: 100%;
+      height: 1px;
+      background-color: #eeeeee;
+      width: calc(100% + 64px);
+      position: relative;
+      left: -32px;
+      margin: 16px 0; }
+    .auth-page form p {
+      font-size: 10px;
+      font-family: "GothamPro Medium";
+      line-height: 14px;
+      color: #191919;
+      text-align: center;
+      width: 500px;
+      margin: 0 auto; }
+      .auth-page form p a {
+        color: #191919; }
+  .auth-page .logo {
+    position: absolute;
+    left: 0;
+    bottom: 50px; }
+  .auth-page .phone {
+    position: absolute;
+    right: 0;
+    bottom: 45px;
+    font-size: 14px;
+    font-family: "GothamPro";
+    color: #fff; }
+    .auth-page .phone a {
+      margin-top: 5px;
+      font-size: 14px;
+      font-family: "GothamPro";
+      color: #fff;
+      text-decoration: none;
+      display: block; }
+
+.register-page {
+  background-image: linear-gradient(to top right, #c502cc, #007eff); }
+  .register-page form button {
+    background-image: linear-gradient(to right, #550bca, #00a1c5); }
+
+.login-page {
+  background-image: linear-gradient(to top right, #56168e, #007eff); }
+  .login-page form {
+    padding-bottom: 70px; }
+    .login-page form button {
+      background-image: linear-gradient(to right, #fc00de, #ff9301); }
+
+.recovery-page {
+  background-image: linear-gradient(to top right, #00c9fc, #6600ff); }
+  .recovery-page form {
+    padding-bottom: 70px; }
+    .recovery-page form button {
+      background-image: linear-gradient(to right, #fc00de, #ff9301); }
+
+.change-page {
+  background-image: linear-gradient(to top right, #00c9fc, #6600ff); }
+  .change-page form {
+    padding-bottom: 70px; }
+    .change-page form button {
+      background-image: linear-gradient(to right, #fc00de, #ff9301); }
+
+.menu-sidebar {
+  position: fixed;
+  width: 50%;
+  z-index: 3;
+  left: -50%;
+  top: 0;
+  height: 100%;
+  transition: all 500ms ease;
+  background-image: linear-gradient(to right, #4823c9, #01a2c5); }
+  .menu-sidebar .container {
+    width: 470px;
+    padding-top: 40px;
+    padding-right: 20px;
+    position: absolute;
+    top: 0;
+    right: 0; }
+    .menu-sidebar .container .divider {
+      height: 1px;
+      width: 100%;
+      background-color: #fff;
+      margin: 33px 0; }
+    .menu-sidebar .container .menu-item {
+      font-family: "GothamPro";
+      color: #fff;
+      display: block;
+      text-decoration: none;
+      margin-bottom: 10px; }
+    .menu-sidebar .container .close {
+      position: absolute;
+      cursor: pointer;
+      top: 30px;
+      right: 20px; }
+
+.menu-sidebar.active {
+  left: -115px;
+  transition: all 500ms ease; }
+
+.course-page {
+  background-color: #fdfdfd; }
+  .course-page .left-background-videos {
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    left: -115px;
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(to right, #1284c6, #550aca); }
+  .course-page .left-background-blog {
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    left: -115px;
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(to right, #29833c, #08969e); }
+  .course-page .left-background-faq {
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    left: -115px;
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(to top right, #f67704, #290a59); }
+  .course-page .wrapper {
+    z-index: 2;
+    display: flex;
+    justify-content: space-between; }
+  .course-page .sidebar {
+    width: 470px;
+    padding-right: 20px;
+    height: 100vh;
+    overflow-y: scroll;
+    position: relative; }
+    .course-page .sidebar .logo-container {
+      height: 100px;
+      padding-top: 28px;
+      padding-left: 65px;
+      position: relative; }
+      .course-page .sidebar .logo-container .arrow {
+        height: 40px;
+        width: auto;
+        position: absolute;
+        left: 0;
+        top: 27px; }
+      .course-page .sidebar .logo-container .asf {
+        font-family: "GothamPro Bold";
+        font-size: 24px;
+        color: #fff;
+        text-align: left; }
+      .course-page .sidebar .logo-container .name {
+        font-family: "GothamPro";
+        font-size: 14px;
+        color: #fff; }
+      .course-page .sidebar .logo-container .menu-button {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        cursor: pointer; }
+    .course-page .sidebar .panel {
+      display: block;
+      padding: 16px 0 12px 0;
+      background-color: #fff;
+      border-radius: 7px;
+      margin-bottom: 18px; }
+      .course-page .sidebar .panel .tariff-label {
+        width: 162px;
+        height: 36px;
+        line-height: 36px;
+        position: relative;
+        color: #fff;
+        font-family: "GothamPro";
+        font-size: 14px;
+        padding-left: 10px;
+        display: inline-block;
+        margin-bottom: 13px; }
+        .course-page .sidebar .panel .tariff-label span {
+          font-family: "GothamPro Medium"; }
+      .course-page .sidebar .panel .tariff-label:before {
+        content: " ";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 18px 0 18px 9px;
+        position: absolute;
+        right: -9px; }
+      .course-page .sidebar .panel .tariff-label.light {
+        background-color: #009eff; }
+      .course-page .sidebar .panel .tariff-label.light:before {
+        border-color: transparent transparent transparent #009eff; }
+      .course-page .sidebar .panel .tariff-label.medium {
+        background-color: #05d475; }
+      .course-page .sidebar .panel .tariff-label.medium:before {
+        border-color: transparent transparent transparent #05d475; }
+      .course-page .sidebar .panel .tariff-label.professional {
+        background-color: #ff9600; }
+      .course-page .sidebar .panel .tariff-label.professional:before {
+        border-color: transparent transparent transparent #ff9600; }
+      .course-page .sidebar .panel .tariff-label.vip {
+        background-color: #9b07f1; }
+      .course-page .sidebar .panel .tariff-label.vip:before {
+        border-color: transparent transparent transparent #9b07f1; }
+      .course-page .sidebar .panel .access-info {
+        font-size: 12px;
+        color: #6c767f;
+        font-family: "GothamPro";
+        display: inline-block;
+        margin-left: 40px;
+        position: relative;
+        top: 6px; }
+      .course-page .sidebar .panel .divider {
+        width: 100%;
+        height: 1px;
+        background-color: #eeeeee;
+        margin-bottom: 13px; }
+      .course-page .sidebar .panel .progress-label {
+        font-family: "GothamPro";
+        font-size: 12px;
+        color: #191919;
+        margin-left: 15px; }
+      .course-page .sidebar .panel .progress-container {
+        display: inline-block;
+        width: 330px;
+        height: 30px;
+        line-height: 30px;
+        margin-left: 15px;
+        margin-top: 4px; }
+        .course-page .sidebar .panel .progress-container .progress-bar {
+          display: inline-block;
+          border-bottom-left-radius: 15px;
+          border-top-left-radius: 15px;
+          width: 100%;
+          height: 100%;
+          background-image: linear-gradient(to right, #009eff, #00c8a8); }
+      .course-page .sidebar .panel .progress-percentage {
+        display: inline-block;
+        line-height: 30px;
+        margin-left: 10px;
+        position: relative;
+        top: -8px;
+        font-size: 24px;
+        color: #555555;
+        font-family: "GothamPro"; }
+      .course-page .sidebar .panel .lessons-block {
+        height: 72px;
+        overflow: hidden;
+        padding: 0 24px;
+        border-top: 1px solid #eee; }
+        .course-page .sidebar .panel .lessons-block .heading {
+          height: 72px;
+          padding-top: 20px;
+          width: 100%;
+          position: relative;
+          cursor: pointer; }
+          .course-page .sidebar .panel .lessons-block .heading p {
+            font-family: "GothamPro";
+            font-size: 12px;
+            color: #6c767f; }
+          .course-page .sidebar .panel .lessons-block .heading h2 {
+            font-family: "GothamPro Bold";
+            font-weight: normal;
+            font-size: 18px;
+            color: #191919;
+            line-height: 24px; }
+          .course-page .sidebar .panel .lessons-block .heading .arrow {
+            position: absolute;
+            color: #6c767f;
+            top: 31px;
+            right: 31px;
+            font-size: 16px;
+            font-weight: normal; }
+        .course-page .sidebar .panel .lessons-block .lesson {
+          font-family: "GothamPro";
+          font-size: 14px;
+          color: #191919;
+          cursor: pointer;
+          display: block;
+          margin: 20px 0; }
+        .course-page .sidebar .panel .lessons-block .lesson.active {
+          font-family: "GothamPro Bold"; }
+        .course-page .sidebar .panel .lessons-block .lesson.active:before {
+          content: " ";
+          margin-right: 6px;
+          position: relative;
+          top: 1px;
+          display: inline-block;
+          background-color: #009eff;
+          width: 12px;
+          height: 12px;
+          border-radius: 6px; }
+      .course-page .sidebar .panel .lessons-block.active {
+        overflow: visible;
+        height: auto; }
+    .course-page .sidebar .panel.knowledge h2 {
+      padding-left: 25px;
+      color: #191919;
+      font-size: 30px;
+      font-weight: normal;
+      font-family: "GothamPro Bold";
+      margin-bottom: 16px; }
+    .course-page .sidebar .panel.knowledge .search-container {
+      -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+      width: 400px;
+      height: 54px;
+      line-height: 54px;
+      border-radius: 27px;
+      margin-left: 18px;
+      position: relative;
+      margin-top: 20px;
+      margin-bottom: 20px; }
+      .course-page .sidebar .panel.knowledge .search-container input {
+        font-family: "GothamPro";
+        font-size: 14px;
+        width: 340px;
+        padding-left: 24px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        border: none;
+        outline: none;
+        background-color: transparent; }
+      .course-page .sidebar .panel.knowledge .search-container .search-button {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        cursor: pointer; }
+    .course-page .sidebar .panel.knowledge article {
+      padding-left: 25px;
+      padding-right: 20px;
+      margin-top: 25px;
+      cursor: pointer; }
+      .course-page .sidebar .panel.knowledge article h3 {
+        color: #191919;
+        font-family: "GothamPro Bold";
+        font-size: 18px;
+        margin-bottom: 10px; }
+      .course-page .sidebar .panel.knowledge article p {
+        color: #6c767f;
+        font-size: 14px;
+        line-height: 22px;
+        font-family: "GothamPro"; }
+    .course-page .sidebar .panel.knowledge .divider {
+      margin-top: 20px;
+      margin-bottom: 20px; }
+    .course-page .sidebar .panel.knowledge .socials {
+      margin-left: 25px;
+      width: 110px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px; }
+      .course-page .sidebar .panel.knowledge .socials a {
+        display: block;
+        text-decoration: none;
+        color: #191919;
+        font-size: 18px; }
+    .course-page .sidebar .panel.faq h2 {
+      padding-left: 25px;
+      color: #191919;
+      font-size: 30px;
+      font-weight: normal;
+      font-family: "GothamPro Bold";
+      margin-bottom: 16px; }
+    .course-page .sidebar .panel.faq .questions-block {
+      height: 72px;
+      overflow: hidden;
+      padding: 0 24px;
+      border-top: 1px solid #eee; }
+      .course-page .sidebar .panel.faq .questions-block .heading {
+        height: 72px;
+        padding-top: 20px;
+        width: 100%;
+        position: relative;
+        cursor: pointer; }
+        .course-page .sidebar .panel.faq .questions-block .heading p {
+          font-family: "GothamPro";
+          font-size: 12px;
+          color: #6c767f; }
+        .course-page .sidebar .panel.faq .questions-block .heading h2 {
+          font-family: "GothamPro Bold";
+          font-weight: normal;
+          font-size: 18px;
+          color: #191919;
+          line-height: 24px;
+          padding-left: 0;
+          padding-right: 45px; }
+        .course-page .sidebar .panel.faq .questions-block .heading .arrow {
+          position: absolute;
+          color: #6c767f;
+          top: 21px;
+          right: 31px;
+          font-size: 16px;
+          font-weight: normal; }
+      .course-page .sidebar .panel.faq .questions-block .question {
+        color: #6c767f;
+        font-family: "GothamPro";
+        font-size: 14px;
+        display: block;
+        margin-bottom: 35px;
+        line-height: 22px;
+        cursor: pointer; }
+      .course-page .sidebar .panel.faq .questions-block .question.active {
+        font-family: "GothamPro Medium";
+        color: #191919; }
+    .course-page .sidebar .panel.faq .questions-block.active {
+      overflow: visible;
+      height: auto; }
+  .course-page .content-container {
+    width: 730px;
+    height: 100vh;
+    overflow: scroll;
+    padding-left: 30px;
+    position: relative;
+    left: 20px;
+    padding-bottom: 20px; }
+  .course-page .content {
+    width: 670px; }
+    .course-page .content .faq-answer {
+      padding-top: 105px; }
+      .course-page .content .faq-answer .question {
+        font-size: 30px;
+        font-family: "GothamPro Bold";
+        color: #191919;
+        margin-bottom: 20px; }
+      .course-page .content .faq-answer .answer {
+        font-family: "GothamPro";
+        color: #6c767f;
+        font-size: 14px;
+        line-height: 22px; }
+    .course-page .content .test-drive {
+      width: 100%;
+      height: 100px;
+      background-color: #f24841;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      position: relative; }
+      .course-page .content .test-drive p {
+        width: 270px;
+        font-size: 18px;
+        line-height: 20px;
+        font-family: "GothamPro Bold";
+        color: #fff;
+        position: absolute;
+        left: 45px;
+        top: 25px; }
+      .course-page .content .test-drive .timer {
+        position: absolute;
+        top: 20px;
+        right: 70px;
+        width: 230px;
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        font-family: "GothamPro"; }
+        .course-page .content .test-drive .timer span {
+          font-size: 34px; }
+        .course-page .content .test-drive .timer div {
+          text-align: center;
+          font-size: 14px; }
+        .course-page .content .test-drive .timer .semicolumn {
+          font-size: 24px; }
+    .course-page .content .credit {
+      width: 100%;
+      height: 80px;
+      line-height: 80px;
+      background-color: #f24841;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding-left: 25px; }
+      .course-page .content .credit p {
+        font-family: "GothamPro Bold";
+        font-size: 18px;
+        color: #fff;
+        display: inline-block; }
+      .course-page .content .credit .button {
+        margin-left: 18px;
+        display: inline-block;
+        text-align: center;
+        width: 230px;
+        height: 48px;
+        line-height: 44px;
+        border: 2px solid #fff;
+        font-family: "GothamPro";
+        font-size: 14px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 24px; }
+    .course-page .content .test-drive {
+      width: 100%;
+      height: 140px;
+      border-radius: 10px;
+      margin-bottom: 20px; }
+      .course-page .content .test-drive p {
+        text-align: center;
+        width: 270px;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%); }
+      .course-page .content .test-drive .timer {
+        transform: translateX(-50%);
+        left: 50%;
+        top: 70px; }
+    .course-page .content .content-panel {
+      background-color: #fff;
+      -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 25px 0; }
+      .course-page .content .content-panel .date {
+        font-family: "GothamPro";
+        font-size: 14px;
+        color: #6c767f;
+        padding-left: 25px;
+        margin-bottom: 10px; }
+      .course-page .content .content-panel h2 {
+        font-family: "GothamPro Bold";
+        font-size: 30px;
+        padding-left: 25px;
+        padding-right: 10px;
+        color: #191919; }
+      .course-page .content .content-panel .short-description {
+        margin: 20px 0;
+        padding-left: 25px;
+        padding-right: 10px;
+        color: #6c767f;
+        font-family: "GothamPro";
+        font-size: 14px;
+        line-height: 22px; }
+      .course-page .content .content-panel .thumbnail {
+        width: 100%;
+        height: 384px;
+        background-size: cover;
+        background-position: center;
+        margin-top: 20px; }
+      .course-page .content .content-panel .button.readmore {
+        margin-left: 23px;
+        display: block;
+        font-family: "GothamPro";
+        color: #fff;
+        text-align: center;
+        width: 180px;
+        font-size: 14px;
+        height: 48px;
+        line-height: 48px;
+        border-radius: 24px;
+        color: #fff;
+        background-image: linear-gradient(to right, #550aca, #00a2c5);
+        cursor: pointer; }
+    .course-page .content .lesson-panel {
+      padding-top: 17px;
+      padding-bottom: 60px; }
+      .course-page .content .lesson-panel .block-label {
+        height: 36px;
+        padding-left: 27px;
+        padding-right: 17px;
+        line-height: 36px;
+        position: relative;
+        color: #fff;
+        font-family: "GothamPro Bold";
+        font-size: 14px;
+        padding-left: 10px;
+        display: inline-block;
+        margin-bottom: 13px;
+        background-color: #009eff; }
+      .course-page .content .lesson-panel .block-label:before {
+        content: " ";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 18px 0 18px 9px;
+        position: absolute;
+        right: -9px;
+        border-color: transparent transparent transparent #009eff; }
+      .course-page .content .lesson-panel .lesson-name {
+        font-family: "GothamPro Bold";
+        font-size: 30px;
+        color: #191919;
+        text-align: left;
+        padding-left: 25px;
+        padding-right: 10px;
+        margin-top: 20px;
+        margin-bottom: 10px; }
+      .course-page .content .lesson-panel .description {
+        font-family: "GothamPro";
+        font-size: 14px;
+        padding-left: 25px;
+        padding-right: 10px;
+        color: #6c767f; }
+      .course-page .content .lesson-panel .video-container {
+        height: 384px;
+        width: 100%;
+        position: relative;
+        margin-top: 30px; }
+        .course-page .content .lesson-panel .video-container iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          right: 0;
+          bottom: 0; }
+      .course-page .content .lesson-panel .materials-link {
+        float: right;
+        color: #2b61cf;
+        font-family: "GothamPro";
+        font-size: 14px;
+        margin-top: 20px;
+        margin-right: 25px; }
+    .course-page .content .checklist-panel {
+      padding-top: 20px;
+      padding-bottom: 5px; }
+      .course-page .content .checklist-panel h2 {
+        font-family: "GothamPro Bold";
+        margin-left: 22px;
+        font-size: 30px;
+        color: #191919; }
+        .course-page .content .checklist-panel h2 i {
+          color: #999;
+          font-size: 30px; }
+      .course-page .content .checklist-panel .divider {
+        width: 100%;
+        background-color: #eeeeee;
+        height: 1px;
+        margin: 20px 0; }
+      .course-page .content .checklist-panel label {
+        position: relative;
+        display: block;
+        padding-left: 55px;
+        margin-bottom: 22px;
+        cursor: pointer; }
+        .course-page .content .checklist-panel label input {
+          display: none; }
+        .course-page .content .checklist-panel label span {
+          font-family: "GothamPro";
+          font-size: 14px;
+          color: #6c767f; }
+        .course-page .content .checklist-panel label span:before {
+          content: " ";
+          display: block;
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          border: 2px solid #999999;
+          border-radius: 4px;
+          left: 24px;
+          top: -2px; }
+      .course-page .content .checklist-panel :checked ~ span:before {
+        background-color: #2b61cf;
+        border: 2px solid #2b61cf; }
+      .course-page .content .checklist-panel :checked ~ span:after {
+        display: block;
+        position: absolute;
+        left: 28px;
+        top: 5px; }
+    .course-page .content .questions-panel {
+      padding-top: 20px;
+      padding-bottom: 20px; }
+      .course-page .content .questions-panel h2 {
+        font-family: "GothamPro Bold";
+        margin-left: 22px;
+        margin-bottom: 20px;
+        font-size: 30px;
+        color: #191919; }
+        .course-page .content .questions-panel h2 i {
+          color: #999;
+          font-size: 30px; }
+      .course-page .content .questions-panel .question-container {
+        padding-top: 20px;
+        padding-bottom: 5px;
+        border: 1px solid #eee; }
+      .course-page .content .questions-panel .question {
+        font-family: "GothamPro Bold";
+        font-size: 16px;
+        color: #191919;
+        padding-left: 25px;
+        padding-right: 10px;
+        margin-bottom: 20px; }
+      .course-page .content .questions-panel .divider {
+        width: 100%;
+        background-color: #eeeeee;
+        height: 1px;
+        margin-bottom: 20px; }
+      .course-page .content .questions-panel label {
+        position: relative;
+        display: block;
+        padding-left: 55px;
+        margin-bottom: 22px;
+        cursor: pointer; }
+        .course-page .content .questions-panel label input {
+          display: none; }
+        .course-page .content .questions-panel label span {
+          font-family: "GothamPro";
+          font-size: 14px;
+          color: #6c767f; }
+        .course-page .content .questions-panel label span:before {
+          content: " ";
+          display: block;
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          border: 2px solid #999999;
+          border-radius: 20px;
+          left: 24px;
+          top: -2px; }
+      .course-page .content .questions-panel :checked ~ span:before {
+        border: 2px solid #2b61cf; }
+      .course-page .content .questions-panel :checked ~ span:after {
+        content: " ";
+        position: absolute;
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: #2b61cf;
+        border-radius: 5px;
+        left: 30px;
+        top: 4px; }
+      .course-page .content .questions-panel .button.next {
+        margin-left: 23px;
+        display: block;
+        font-family: "GothamPro";
+        color: #fff;
+        text-align: center;
+        width: 310px;
+        height: 48px;
+        line-height: 48px;
+        border-radius: 24px;
+        color: #fff;
+        background-image: linear-gradient(to right, #550aca, #00a2c5);
+        cursor: pointer; }
+        .course-page .content .questions-panel .button.next img {
+          position: relative;
+          top: 5px;
+          margin-right: 5px; }
+    .course-page .content .filters {
+      width: 440px;
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-family: "GothamPro Bold";
+      color: #6c767f;
+      display: flex;
+      justify-content: space-between; }
+      .course-page .content .filters .filter-item {
+        cursor: pointer;
+        height: 54px;
+        line-height: 54px;
+        text-align: center;
+        padding: 0 20px;
+        text-align: center;
+        position: relative; }
+      .course-page .content .filters .filter-item.active:before {
+        content: " ";
+        display: block;
+        height: 4px;
+        width: 100%;
+        background-image: linear-gradient(to right, #550cca, #01a0c5);
+        position: absolute;
+        left: 0;
+        bottom: 0; }
+      .course-page .content .filters .filter-item.active {
+        color: #191919; }
+    .course-page .content .article iframe {
+      width: 100%;
+      height: 340px;
+      position: relative;
+      margin-top: 15px;
+      top: 5px; }
+    .course-page .content .article.video {
+      padding-bottom: 0;
+      overflow: hidden; }
+
+.error {
+  font-size: 14px;
+  font-family: "GothamPro Medium";
+  color: red; }
+
+.error-popup-container {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); }
+  .error-popup-container .error-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 570px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 70px;
+    padding-right: 100px; }
+    .error-popup-container .error-popup h2 {
+      color: #191919;
+      font-family: "GothamPro Bold";
+      font-size: 30px; }
+    .error-popup-container .error-popup p {
+      font-size: 14px;
+      color: #6c767f;
+      margin-top: 10px;
+      margin-bottom: 25px;
+      line-height: 18px;
+      font-family: "GothamPro"; }
+    .error-popup-container .error-popup .button {
+      width: 150px;
+      height: 49px;
+      text-align: center;
+      cursor: pointer;
+      background-image: linear-gradient(to right, #540dca, #029ec5);
+      border-radius: 25px;
+      line-height: 50px;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      font-family: "GothamPro"; }
+      .error-popup-container .error-popup .button img {
+        position: relative;
+        top: 7px;
+        margin-right: 10px; }
+
+.one-post {
+  margin-top: 20px; }
+
+.mob {
+  display: none; }
+
+@media all and (max-width: 800px) {
+  .wrapper {
+    width: 100%; }
+
+  .mob {
+    display: block; }
+
+  .login-page .logo {
+    display: none; }
+  .login-page .phone {
+    display: none; }
+
+  .auth-page {
+    overflow: hidden; }
+    .auth-page .auth-form {
+      width: 100%;
+      padding: 25px 15px;
+      padding-bottom: 60px; }
+      .auth-page .auth-form h3 {
+        font-size: 24px; }
+      .auth-page .auth-form p {
+        width: 100%; }
+    .auth-page h1 {
+      font-size: 22px;
+      text-align: center;
+      width: 100%;
+      padding: 0 12px;
+      line-height: 22px; }
+    .auth-page h2 {
+      margin-top: 5px;
+      font-size: 14px;
+      text-align: center;
+      width: 100%;
+      padding: 0 12px;
+      line-height: 22px; }
+
+  .register-page {
+    height: 100%;
+    padding-top: 28px; }
+    .register-page .centered {
+      position: static;
+      transform: none; }
+    .register-page .auth-footer {
+      position: relative;
+      height: 150px; }
+      .register-page .auth-footer .logo {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 90px; }
+      .register-page .auth-footer .phone {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 35px;
+        width: 200px; }
+    .register-page .auth-form {
+      padding-bottom: 25px; }
+
+  .recovery-page .auth-footer {
+    display: none; }
+
+  .change-page .auth-footer {
+    display: none; }
+
+  .course-page .left-background-videos {
+    width: 100%;
+    left: 0; }
+  .course-page .left-background-blog {
+    width: 100%;
+    left: 0; }
+  .course-page .wrapper {
+    display: block; }
+  .course-page .sidebar {
+    height: auto;
+    position: static;
+    width: 100%;
+    padding: 0; }
+    .course-page .sidebar .filters-button {
+      position: absolute;
+      top: 15px;
+      left: 15px; }
+    .course-page .sidebar .panel.knowledge {
+      margin-top: 20px;
+      position: static;
+      transform: none; }
+      .course-page .sidebar .panel.knowledge .emotion {
+        font-size: 14px;
+        padding-left: 25px;
+        margin: 8px 0; }
+      .course-page .sidebar .panel.knowledge .emotion.active:before {
+        top: 0px;
+        transform: none; }
+      .course-page .sidebar .panel.knowledge h2 {
+        font-size: 18px;
+        margin-bottom: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee; }
+      .course-page .sidebar .panel.knowledge .divider {
+        margin: 10px 0; }
+      .course-page .sidebar .panel.knowledge article {
+        display: none; }
+      .course-page .sidebar .panel.knowledge .divider {
+        display: none; }
+      .course-page .sidebar .panel.knowledge .search-container {
+        width: calc(100% - 40px);
+        margin: 20px; }
+      .course-page .sidebar .panel.knowledge .socials {
+        display: none; }
+      .course-page .sidebar .panel.knowledge h2:nth-of-type(2) {
+        display: none; }
+    .course-page .sidebar .panel {
+      width: 100%; }
+      .course-page .sidebar .panel .tariff-label {
+        width: 108px;
+        font-size: 12px;
+        line-height: 38px;
+        padding-left: 17px; }
+      .course-page .sidebar .panel .your-tariff {
+        line-height: 12px;
+        padding-top: 8px; }
+      .course-page .sidebar .panel .tariff-label:before {
+        top: 0; }
+      .course-page .sidebar .panel .lessons-block {
+        padding: 0 15px; }
+        .course-page .sidebar .panel .lessons-block .heading .arrow {
+          right: 0; }
+      .course-page .sidebar .panel .access-info {
+        float: right;
+        margin-right: 15px;
+        font-size: 10px;
+        margin-left: 0; }
+      .course-page .sidebar .panel .progress-container {
+        width: calc(100vw - 70px); }
+      .course-page .sidebar .panel .progress-percentage {
+        margin-left: 0;
+        margin-right: 0; }
+    .course-page .sidebar .courselist-panel {
+      display: none; }
+    .course-page .sidebar .lessons-list {
+      background-image: linear-gradient(to right, #1284c6, #550aca);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow-y: scroll;
+      z-index: 10; }
+      .course-page .sidebar .lessons-list .list {
+        height: 50px;
+        line-height: 50px;
+        font-family: "GothamPro Bold";
+        color: #fff;
+        padding-left: 16px; }
+      .course-page .sidebar .lessons-list .arrow-close {
+        position: absolute;
+        top: 15px;
+        right: 15px; }
+    .course-page .sidebar .logo-container {
+      padding: 15px;
+      position: relative; }
+      .course-page .sidebar .logo-container .asf {
+        display: none; }
+      .course-page .sidebar .logo-container .arrow {
+        display: none; }
+      .course-page .sidebar .logo-container .mob-asf {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%); }
+      .course-page .sidebar .logo-container .course-button {
+        position: absolute;
+        top: 11px;
+        left: 15px; }
+      .course-page .sidebar .logo-container .menu-button {
+        right: 15px;
+        top: 15px; }
+      .course-page .sidebar .logo-container .name {
+        width: 100%;
+        text-align: center;
+        margin-top: 60px; }
+  .course-page .menu-sidebar {
+    width: 100vw;
+    left: -100vw; }
+    .course-page .menu-sidebar .container {
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding-left: 17px;
+      padding-top: 30px; }
+  .course-page .menu-sidebar.active {
+    left: auto;
+    right: 0; }
+  .course-page .error-popup {
+    width: calc(100vw - 30px);
+    padding: 30px 15px;
+    height: auto; }
+    .course-page .error-popup h2 {
+      font-size: 18px; }
+    .course-page .error-popup .button {
+      width: 100%; }
+  .course-page .content-container {
+    width: 100%;
+    padding: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    overflow: hidden; }
+    .course-page .content-container .content {
+      width: 100%;
+      height: auto;
+      overflow: hidden; }
+      .course-page .content-container .content .mob-filters {
+        position: fixed;
+        padding-top: 20px;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        background-image: linear-gradient(to bottom left, #518243, #5597a8); }
+        .course-page .content-container .content .mob-filters .filter-item {
+          font-size: 18px;
+          font-family: "GothamPro";
+          color: #fff;
+          padding-left: 15px;
+          line-height: 28px; }
+        .course-page .content-container .content .mob-filters .filter-item.active {
+          font-family: "GothamPro Bold"; }
+        .course-page .content-container .content .mob-filters .arrow {
+          position: absolute;
+          top: 30px;
+          right: 15px;
+          z-index: 2; }
+      .course-page .content-container .content .filters {
+        display: none; }
+      .course-page .content-container .content .credit {
+        border-radius: 10px;
+        margin-bottom: 20px;
+        height: auto;
+        padding: 25px 15px;
+        line-height: 14px; }
+        .course-page .content-container .content .credit p {
+          margin-bottom: 10px;
+          font-size: 14px; }
+        .course-page .content-container .content .credit .button {
+          width: 100%;
+          margin: 0;
+          left: auto;
+          right: auto; }
+      .course-page .content-container .content .lesson-panel .lesson-name {
+        font-size: 18px;
+        padding-right: 60px; }
+      .course-page .content-container .content .lesson-panel .description {
+        padding-right: 60px;
+        font-size: 14px; }
+      .course-page .content-container .content .lesson-panel .video-container {
+        height: 100%;
+        height: 34vh; }
+      .course-page .content-container .content .lesson-panel .vjs-custom-skin {
+        width: 100%;
+        height: 34vh; }
+      .course-page .content-container .content .lesson-panel .vjs-custom-skin > div {
+        width: 100%;
+        height: 34vh; }
+      .course-page .content-container .content .checklist-panel h2 {
+        font-size: 18px;
+        margin: 0;
+        padding-left: 20px;
+        width: 300px; }
+      .course-page .content-container .content .questions-panel h2 {
+        font-size: 18px;
+        margin: 0;
+        padding-left: 20px;
+        width: 300px;
+        margin-bottom: 20px; }
+
+  .lds-roller div:after {
+    background-color: #fff !important; } }
+
+/*# sourceMappingURL=style.css.map */
