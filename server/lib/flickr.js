@@ -37,17 +37,12 @@ const flickr = (api_key) => {
         const mergedPhotos = photos[0].concat(photos[1].filter(photo => photos[0].indexOf(photo) < 0));
         const storedPhotos = mergedPhotos.map(async (photo) => {
             photo.url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
-            photo.raw = await downloadPhoto(photo);
             await cache.savePhoto(photo);
             return photo;
         });
         return await Promise.all(storedPhotos);
     };
 
-    const downloadPhoto = async (photo) => {
-        const { data } = await axios.get(photo.url);
-        return data;
-    } ;
 
     const loadAllTagsPages = async (tags, page) => {
         const { data } = await request.get('', {

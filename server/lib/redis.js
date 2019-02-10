@@ -12,7 +12,7 @@ const wrapper = () => {
     const savePhoto = (photo) => {
         return Promise.all([
             client.zaddAsync('photos', 0, photo.id),
-            client.hmsetAsync(photo.id, 'raw', photo.raw, 'url', photo.url)
+            client.hmsetAsync(photo.id, 'url', photo.url)
         ]);
     };
 
@@ -25,7 +25,7 @@ const wrapper = () => {
     };
 
     const getByEmotion = (emotion, offset) => {
-        return client.zrangeAsync(emotion, offset, process.env.PHOTOS_PER_PAGE);
+        return client.zrangeAsync(emotion, offset, offset + process.env.PHOTOS_PER_PAGE - 1);
     };
 
     const getPhotos = async (offset) => {
