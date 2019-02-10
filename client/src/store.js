@@ -11,11 +11,12 @@ export default new Vuex.Store({
         emotions: [],
         selected_emotions: [],
         photos: [],
-        is_loading: true
+        is_loading: true,
+        api_link: window.location.href
     },
     actions: {
         async fetchEmotions({ commit }) {
-            const res = await axios.get('http://localhost:3000/emotions').catch(e => {
+            const res = await axios.get(`${api_link}emotions`).catch(e => {
                 throw new Error(e);
             });
             if (res.data.length) {
@@ -40,7 +41,7 @@ export default new Vuex.Store({
                 } else {
                     commit('setOffset', state.offset + 11);
                 }
-                res = await axios.get(`http://localhost:3000/filterPhotos?offset=${state.offset}&emotion=${emotion}`).catch(e => {
+                res = await axios.get(`${api_link}filterPhotos?offset=${state.offset}&emotion=${emotion}`).catch(e => {
                     throw new Error(e);
                 });
                 commit('setCurrentType', emotion);
@@ -52,7 +53,7 @@ export default new Vuex.Store({
                 } else {
                     commit('setOffset', state.offset + 11);
                 }
-                res = await axios.get(`http://localhost:3000/photos?offset=${state.offset}`).catch(e => {
+                res = await axios.get(`${api_link}photos?offset=${state.offset}`).catch(e => {
                     throw new Error(e);
                 });
                 commit('setCurrentType', 'all');
