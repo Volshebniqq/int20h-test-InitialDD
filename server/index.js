@@ -22,6 +22,13 @@ async function run() {
 }
 run();
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, PATCH, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, x-access-token');
+    next();
+});
+
 app.get('/photos', async (req, res) => {
     res.send(await cache.getPhotos(req.query.offset));
 });
