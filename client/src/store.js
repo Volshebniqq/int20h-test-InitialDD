@@ -15,8 +15,8 @@ export default new Vuex.Store({
         api_link: window.location.href
     },
     actions: {
-        async fetchEmotions({ commit }) {
-            const res = await axios.get(`${api_link}emotions`).catch(e => {
+        async fetchEmotions({ commit, state }) {
+            const res = await axios.get(`${state.api_link}emotions`).catch(e => {
                 throw new Error(e);
             });
             if (res.data.length) {
@@ -32,7 +32,6 @@ export default new Vuex.Store({
             let emotion = state.emotions.find(em => em.active);
             if (emotion) emotion = emotion.name;
             let res;
-            console.log(emotion);
             if (emotion) {
                 if (state.current_type !== emotion) {
                     commit('setOffset', 0);
@@ -41,7 +40,7 @@ export default new Vuex.Store({
                 } else {
                     commit('setOffset', state.offset + 11);
                 }
-                res = await axios.get(`${api_link}filterPhotos?offset=${state.offset}&emotion=${emotion}`).catch(e => {
+                res = await axios.get(`${state.api_link}filterPhotos?offset=${state.offset}&emotion=${emotion}`).catch(e => {
                     throw new Error(e);
                 });
                 commit('setCurrentType', emotion);
@@ -53,7 +52,7 @@ export default new Vuex.Store({
                 } else {
                     commit('setOffset', state.offset + 11);
                 }
-                res = await axios.get(`${api_link}photos?offset=${state.offset}`).catch(e => {
+                res = await axios.get(`${state.api_link}photos?offset=${state.offset}`).catch(e => {
                     throw new Error(e);
                 });
                 commit('setCurrentType', 'all');
